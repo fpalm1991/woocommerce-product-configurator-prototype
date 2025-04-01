@@ -35,7 +35,8 @@ class ProductConfigurator
                 return $cart_item_data;
             }, 10, 3);
 
-            add_filter('woocommerce_get_item_data', function ($item_data, $cart_item) {
+            add_filter('woocommerce_get_item_data', function ($item_data, $cart_item)
+            {
                 if (!empty($cart_item['custom_text'])) {
                     $item_data[] = [
                         'name' => 'Custom Text',
@@ -53,7 +54,8 @@ class ProductConfigurator
                 return $item_data;
             }, 10, 2);
 
-            add_action('woocommerce_new_order_item', function ($item_id, $values) {
+            add_action('woocommerce_new_order_item', function ($item_id, $values): void
+            {
                 if (!empty($values['custom_text'])) {
                     wc_add_order_item_meta($item_id, 'Custom Text', $values['custom_text']);
                 }
@@ -75,7 +77,7 @@ class ProductConfigurator
         wp_enqueue_script('prod-config-app', get_template_directory_uri() . "/product-configurator-vue/dist/assets/index-DJqoOEJl.js", [], null, true);
     }
 
-    public function add_woocommerce_support()
+    public function add_woocommerce_support(): void
     {
         add_theme_support('woocommerce');
     }
