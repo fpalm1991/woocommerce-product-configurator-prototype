@@ -1,0 +1,17 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+    line-height: 1.8;
+    font-size: clamp(1rem, 0.7596rem + 0.7692vw, 1.375rem);
+}
+
+.main {
+    margin: 1rem;
+}
